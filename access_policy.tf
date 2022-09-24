@@ -24,8 +24,8 @@ resource "azurerm_key_vault_access_policy" "terraform_ap" {
     "Delete",
     "Recover",
     "Purge",
-    "wrapKey",
-    "unwrapKey"
+    "WrapKey",
+    "UnwrapKey"
   ]
 
   secret_permissions = [
