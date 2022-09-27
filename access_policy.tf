@@ -52,7 +52,7 @@ resource "azurerm_key_vault_access_policy" "terraform_sp_ap" {
 resource "azurerm_key_vault_access_policy" "myuser_ap" {
   key_vault_id = azurerm_key_vault.key_vault.id
   tenant_id    = var.tenant_id
-  object_id    = data.azuread_user.myuser
+  object_id    = data.azuread_user.myuser.id
 
   key_permissions = [
     "Get",
