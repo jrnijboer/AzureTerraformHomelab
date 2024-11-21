@@ -2,10 +2,6 @@ data "azuread_service_principal" "terraform_sp" {
   display_name = "terraform_service_principle"
 }
 
-data "azurerm_subscription" "subscription" {
-  subscription_id = var.subscription_id
-}
-
 data "azuread_user" "myuser" {
   user_principal_name = var.admin_id
 }

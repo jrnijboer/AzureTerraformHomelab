@@ -1,5 +1,4 @@
 locals {
-  env      = "home"
   location = "WestEurope"
 
   common_tags = {

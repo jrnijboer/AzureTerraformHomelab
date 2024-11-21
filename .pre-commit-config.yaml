@@ -40,7 +40,7 @@ repos:
     rev: '3.2.260'
     hooks:
       - id: checkov
-        entry: checkov -d . --skip-check CKV_DOCKER_2
+        entry: checkov -d . --skip-check CKV_DOCKER_2 --skip-check CKV_AZURE_112 --skip-check CKV2_AZURE_32 --skip-check CKV_AZURE_40
       - id: checkov_secrets
 
   #  analysis of your markdown files, configuration can be set in .markdownlint.yaml

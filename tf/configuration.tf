@@ -9,6 +9,10 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "4.10.0"
     }
+    time = {
+      source  = "hashicorp/time"
+      version = "0.12.1"
+    }
   }
 
   #   backend "azurerm" {
@@ -30,4 +34,7 @@ provider "azuread" {
   tenant_id     = var.tenant_id
   client_id     = var.client_id
   client_secret = var.client_secret
+}
+
+provider "time" {
 }

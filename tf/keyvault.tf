@@ -7,7 +7,7 @@ resource "azurerm_key_vault" "key_vault" {
   tenant_id                  = var.tenant_id
   tags                       = local.common_tags
   purge_protection_enabled   = true
-  soft_delete_retention_days = 30
+  soft_delete_retention_days = 90
   network_acls {
     default_action = "Deny"
     bypass         = "AzureServices"
