@@ -8,6 +8,7 @@ resource "azurerm_key_vault" "key_vault" {
   tags                       = local.common_tags
   purge_protection_enabled   = true
   soft_delete_retention_days = 90
+  enable_rbac_authorization  = true
   network_acls {
     default_action = "Deny"
     bypass         = "AzureServices"
@@ -18,7 +19,6 @@ resource "azurerm_key_vault" "key_vault" {
 }
 
 resource "azurerm_key_vault_key" "hashicorp_key" { #tfsec:ignore:azure-keyvault-ensure-key-expiry
-  depends_on   = [time_sleep.wait_30_seconds]
   name         = "hashicorp-vault-unseal"
   key_vault_id = azurerm_key_vault.key_vault.id
   key_type     = "RSA"

@@ -17,8 +17,3 @@ variable "client_secret" {
   type        = string
   description = "Secret used by the client id"
 }
-
-variable "admin_id" {
-  type        = string
-  description = "My userid"
-}
