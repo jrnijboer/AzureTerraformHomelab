@@ -3,15 +3,11 @@ terraform {
   required_providers {
     azuread = {
       source  = "hashicorp/azuread"
-      version = "3.0.2"
+      version = "3.1.0"
     }
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "4.10.0"
-    }
-    time = {
-      source  = "hashicorp/time"
-      version = "0.12.1"
+      version = "4.16.0"
     }
   }
 
@@ -35,7 +31,4 @@ provider "azuread" {
   tenant_id     = var.tenant_id
   client_id     = var.client_id
   client_secret = var.client_secret
-}
-
-provider "time" {
 }

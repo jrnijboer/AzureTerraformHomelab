@@ -33,6 +33,10 @@ resource "azurerm_storage_account" "home_storage_account" {
   }
 }
 
+data "azuread_user" "myuser" {
+  object_id = "92b87317-1d6f-4528-b596-1a2cd204d1d2"
+}
+
 # Assigning storage contributor roles is needed because shared access keys are disabled
 resource "azurerm_role_assignment" "storage_account_blob_contributor_ra" {
   scope                = azurerm_storage_account.home_storage_account.id
@@ -40,8 +44,16 @@ resource "azurerm_role_assignment" "storage_account_blob_contributor_ra" {
   principal_id         = var.client_id
 }
 
+resource "azurerm_role_assignment" "myuser_storage_account_blob_contributor_ra" {
+  scope                = azurerm_storage_account.home_storage_account.id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = data.azuread_user.myuser.object_id
+}
+
 resource "azurerm_storage_container" "terraform_state_container" {
   name                  = "tfstate"
   storage_account_id    = azurerm_storage_account.home_storage_account.id
   container_access_type = "private"
 }
+
+
