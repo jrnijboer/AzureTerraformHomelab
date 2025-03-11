@@ -9,13 +9,13 @@
 resource "azurerm_role_assignment" "role_hashicorp_vault_kv_secrets_ra" {
   scope                = azurerm_key_vault.key_vault.id
   role_definition_name = "Key Vault Secrets User"
-  principal_id         = var.client_id
+  principal_id         = var.terraform_sp_object_id
 }
 
 resource "azurerm_role_assignment" "role_hashicorp_vault_kv_crypto_ra" {
   scope                = azurerm_key_vault.key_vault.id
   role_definition_name = "Key Vault Crypto User"
-  principal_id         = var.client_id
+  principal_id         = var.terraform_sp_object_id
 }
 
 # resource "azurerm_key_vault_access_policy" "terraform_sp_ap" {

@@ -17,3 +17,8 @@ variable "client_secret" {
   type        = string
   description = "Secret used by the client id"
 }
+
+variable "terraform_sp_object_id" {
+  type = string
+  description = "The object_id of the Terraform service principal"
+}

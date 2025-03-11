@@ -41,7 +41,7 @@ data "azuread_user" "myuser" {
 resource "azurerm_role_assignment" "storage_account_blob_contributor_ra" {
   scope                = azurerm_storage_account.home_storage_account.id
   role_definition_name = "Storage Blob Data Contributor"
-  principal_id         = var.client_id
+  principal_id         = var.terraform_sp_object_id
 }
 
 resource "azurerm_role_assignment" "myuser_storage_account_blob_contributor_ra" {

@@ -11,6 +11,13 @@ terraform {
     }
   }
 
+ 	backend "remote" {
+    organization = "jrnijboer"
+    workspaces {
+      name = "AzureTerraformHomelab" # name for your app's state.
+    }
+	}
+
   #   backend "azurerm" {
   #     storage_account_name = "terraformstate"
   #     container_name       = "tfstate"
